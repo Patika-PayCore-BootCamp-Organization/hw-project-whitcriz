@@ -1,20 +1,26 @@
 package com.patika.paycore.crowdfunding.service;
 
-import com.patika.paycore.crowdfunding.model.ProjectCategory;
+import com.patika.paycore.crowdfunding.model.entity.ProjectCategory;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Set;
 
 public interface ProjectCategoryService {
 
-    boolean createCategory(ProjectCategory category);
+    void addCategory(@RequestBody ProjectCategory projectCategory);
 
     List<ProjectCategory> getAllCategories();
 
     ProjectCategory getCategory(Integer id);
 
+    ProjectCategory updateCategory(@RequestBody ProjectCategory projectCategory);
+
     boolean deleteCategory(Integer id);
 
-    ProjectCategory updateCategory(String categoryName, ProjectCategory updatedCategory);
-}
+    List<ProjectCategory> getCategoriesNameStartsWith(String prefix);
 
+    ProjectCategory getCategoryByProject(Integer projectId);
+
+    ProjectCategory getCategory(String name);
+
+}
