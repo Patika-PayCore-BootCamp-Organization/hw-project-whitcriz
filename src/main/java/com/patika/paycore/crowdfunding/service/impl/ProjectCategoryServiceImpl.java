@@ -21,7 +21,7 @@ public class ProjectCategoryServiceImpl implements ProjectCategoryService {
     private final ProjectService projectService;
 
     @Override
-    public void addCategory(ProjectCategory projectCategory) {
+    public void createCategory(ProjectCategory projectCategory) {
         projectCategoryRepository.save(projectCategory);
     }
 

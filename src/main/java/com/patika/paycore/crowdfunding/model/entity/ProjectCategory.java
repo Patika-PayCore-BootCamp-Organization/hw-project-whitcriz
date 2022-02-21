@@ -28,7 +28,7 @@ public class ProjectCategory {
     @NotNull(message = "description can not be null")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project_category", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project_category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Project> projects;
 
 }

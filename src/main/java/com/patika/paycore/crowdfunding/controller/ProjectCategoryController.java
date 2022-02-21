@@ -37,8 +37,8 @@ public class ProjectCategoryController {
     }
 
     @GetMapping(value = "/by-project/{projectId}")
-    public ProjectCategory getCategoryByProject(@PathVariable @Min(1) Integer projectId) {
-        return projectCategoryService.getCategoryByProject(projectId);
+    public ProjectCategoryDTO getCategoryByProject(@PathVariable @Min(1) Integer projectId) {
+        return PROJECT_CATEGORY_MAPPER.toDto(projectCategoryService.getCategoryByProject(projectId));
     }
 
     @GetMapping(value = "/{name}")
@@ -48,7 +48,7 @@ public class ProjectCategoryController {
 
     @PostMapping(value = "/create")
     public void addCategory(@Valid @RequestBody ProjectCategoryDTO projectCategory) {
-        projectCategoryService.addCategory(PROJECT_CATEGORY_MAPPER.toEntity(projectCategory));
+        projectCategoryService.createCategory(PROJECT_CATEGORY_MAPPER.toEntity(projectCategory));
     }
 
    @PutMapping(value = "/update")

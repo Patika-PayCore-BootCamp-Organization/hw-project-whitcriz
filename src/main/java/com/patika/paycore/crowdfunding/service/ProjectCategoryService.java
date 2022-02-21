@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProjectCategoryService {
 
-    void addCategory(@RequestBody ProjectCategory projectCategory);
+    void createCategory(@RequestBody ProjectCategory projectCategory);
 
     List<ProjectCategory> getAllCategories();
 
